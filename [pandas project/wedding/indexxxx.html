@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walimatul Urus</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('weddingpic.jpg') no-repeat center center/cover;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 400px;
+            position: relative;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .card h1 {
+            color: #d63384;
+        }
+        .card p {
+            color: #555;
+            font-size: 16px;
+        }
+        .button {
+            background: #ff6b81;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-size: 16px;
+            transition: transform 0.3s;
+        }
+        .button:hover {
+            transform: scale(1.1);
+        }
+        .floating-hearts {
+            position: absolute;
+            color: #ff4d6d;
+            font-size: 24px;
+            animation: float 4s infinite ease-in-out;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(-20px); opacity: 0.7; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: pink;
+            opacity: 0.7;
+            animation: confettiFall 4s linear infinite;
+        }
+        @keyframes confettiFall {
+            0% { transform: translateY(-100vh) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</h2>
+        <h1>Walimatul Urus 💍</h1>
+        <p>Dengan penuh kesyukuran, kami menjemput anda ke majlis ketimbang</p>
+        <h2>Ahmad Rafiq & nuwar Ibrahim(pigmx) <h2>
+        <p>Tarikh: 20 Disember 2025</p>
+        <p>Tempat: Pwtc, Kuala Lumpur</p>
+        <button class="button" onclick="rsvp()">Sahkan Kehadiran</button>
+    </div>
+
+    <script>
+        function rsvp() {
+            alert("Terima kasih atas pengesahan anda! Jumpa di majlis non ketimbang kami! 🎉");
+        }
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '💖';
+            heart.classList.add('floating-hearts');
+            document.body.appendChild(heart);
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.top = Math.random() * 100 + "vh";
+            heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+            setTimeout(() => {
+                heart.remove();
+            }, 4000);
+        }
+        setInterval(createHeart, 1000);
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            document.body.appendChild(confetti);
+            confetti.style.left = Math.random() * 100 + "vw";
+            confetti.style.animationDuration = Math.random() * 3 + 2 + "s";
+            setTimeout(() => {
+                confetti.remove();
+            }, 4000);
+        }
+        setInterval(createConfetti, 500);
+    </script>
+</body>
+</html>

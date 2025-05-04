@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walimatu Urus</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: url('/mnt/data/pantai.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            color: #d63384;
+        }
+        .button-container button {
+            margin: 5px;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .surprise {
+            background: #ff69b4;
+            color: white;
+        }
+        .lokasi {
+            background: #007bff;
+            color: white;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</h2>
+        <h1>Walimatul Urus 💍</h1>
+        <p>Dengan penuh kesyukuran, kami menjemput anda ke majlis perkahwinan</p>
+        <h3>Ahmad Rafiq & Anwar Ibrahim</h3>
+        <p><strong>Tarikh:</strong> 20 Disember 2025</p>
+        <p><strong>Tempat:</strong> Grand Wedding Hall, Kuala Lumpur</p>
+        <p id="countdown"></p>
+        <div class="button-container">
+            <button onclick="playPauseMusic()">🎵 Play/Pause Music</button>
+            <button class="surprise" onclick="surpriseEffect()">🎉 Surprise!</button>
+            <button class="lokasi" onclick="openMap()">📍 Lihat Lokasi</button>
+        </div>
+    </div>
+
+    <audio id="music" loop>
+        <source src="/mnt/data/music.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function playPauseMusic() {
+            var music = document.getElementById("music");
+            if (music.paused) {
+                music.play();
+            } else {
+                music.pause();
+            }
+        }
+        
+        function surpriseEffect() {
+            alert("Semoga berbahagia hingga ke Jannah! ❤️");
+        }
+        
+        function openMap() {
+            window.open("https://goo.gl/maps/xyz123", "_blank");
+        }
+        
+        function countdown() {
+            var eventDate = new Date("December 20, 2025 00:00:00").getTime();
+            var now = new Date().getTime();
+            var timeLeft = eventDate - now;
+            var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            document.getElementById("countdown").innerHTML = "Majlis akan berlangsung dalam " + days + " hari lagi!";
+        }
+        countdown();
+    </script>
+</body>
+</html>
